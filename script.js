@@ -49,11 +49,13 @@ var isTonicFlat = false;
 var isUnknownFlat = true;
 
 function createChallenge() {
-	// TODO: Make random
-	tonic = 2;
-	unknown = 1;
-	isTonicFlat = true;
-	isUnknownFlat = false;
+	tonic = unknown = randomNumber(NOTES.length);
+	while (tonic === unknown) {
+		unknown = randomNumber(NOTES.length);
+	}
+
+	isTonicFlat = randomNumber(2) === 1;
+	isUnknownFlat = randomNumber(2) === 1;
 
 	tonicElement.innerHTML = NOTES[tonic] + (isTonicFlat ? '&flat;' : '');
 	unknownElement.innerHTML = NOTES[unknown] + (isUnknownFlat ? '&flat;' : '');
@@ -109,6 +111,10 @@ function determineStepDistance(step, variation) {
 		return STEP_DISTANCES[key];
 
 	return -1;
+}
+
+function randomNumber(max) {
+	return Math.floor(Math.random() * max);
 }
 
 document.getElementById('guess').addEventListener('submit', (e) => {
