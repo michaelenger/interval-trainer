@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
-(function() {
+(function () {
 
 const LETTERS = [
-	"A", "B", "C", "D", "E", "F", "G"
+	'A', 'B', 'C', 'D', 'E', 'F', 'G'
 ];
 
-const guessStepElement = document.getElementById("guess-step");
-const guessVariationElement = document.getElementById("guess-variation");
-const tonicElement = document.getElementById("tonic");
-const unknownElement = document.getElementById("unknown");
+const guessStepElement = document.getElementById('guess-step');
+const guessVariationElement = document.getElementById('guess-variation');
+const tonicElement = document.getElementById('tonic');
+const unknownElement = document.getElementById('unknown');
 
 function createChallenge() {
 	// TODO: Make random
@@ -18,8 +18,8 @@ function createChallenge() {
 	const isTonicFlat = false;
 	const isUnknownFlat = true;
 
-	tonicElement.innerHTML = LETTERS[tonic] + (isTonicFlat ? "&flat;" : "");
-	unknownElement.innerHTML = LETTERS[unknown] + (isUnknownFlat ? "&flat;" : "");
+	tonicElement.innerHTML = LETTERS[tonic] + (isTonicFlat ? '&flat;' : '');
+	unknownElement.innerHTML = LETTERS[unknown] + (isUnknownFlat ? '&flat;' : '');
 }
 
 function checkGuess() {
@@ -28,14 +28,14 @@ function checkGuess() {
 
 	console.log(`CHECK: ${variation} ${step}`);
 
-	guessStepElement.value = "";
-	guessVariationElement.value = "";
+	guessStepElement.value = '';
+	guessVariationElement.value = '';
 }
 
-document.getElementById("guess").addEventListener("submit", (e) => {
+document.getElementById('guess').addEventListener('submit', (e) => {
 	e.preventDefault();
 	checkGuess();
-})
+});
 
 createChallenge();
 
