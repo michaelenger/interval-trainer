@@ -5,9 +5,44 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Interval Trainer</title>
 		<link rel="stylesheet" href="simple.min.css">
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 		<h1>Interval Trainer</h1>
+
+		<div id="challenge">
+			<div id="tonic">C</div>
+			<div id="arrow">&rarr;</div>
+			<div id="unknown">F&flat;</div>
+		</div>
+
+		<form id="guess">
+			<div>
+				<select>
+					<option value=""></option>
+					<option value="maj">Major</option>
+					<option value="min">Minor</option>
+					<option value="perf">Perfect</option>
+					<option value="aug">Augmented</option>
+					<option value="dim">Diminished</option>
+				</select>
+			</div>
+			<div>
+				<select>
+					<option value=""></option>
+					<option value="1">Tonic</option>
+					<option value="2">2nd</option>
+					<option value="3">3rd</option>
+					<option value="4">4th</option>
+					<option value="5">5th</option>
+					<option value="6">6th</option>
+					<option value="7">7th</option>
+				</select>
+			</div>
+			<div>
+				<button>Check</button>
+			</div>
+		</form>
 
 		<script type="text/javascript" src="script.js"></script>
 	</body>

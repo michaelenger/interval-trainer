@@ -1,0 +1,38 @@
+h1 {
+	text-align: center;
+}
+
+#challenge {
+	align-items: center;
+	display: flex;
+	font-size: 12rem;
+	font-weight: bold;
+	height: 300px;
+	justify-content: center;
+}
+
+#challenge div {
+	margin: 0 0.5rem;
+}
+
+#challenge #arrow {
+	color: var(--text-light);
+	font-size: 6rem;
+	margin: 0 3rem;
+}
+
+#guess {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+#guess div {
+	margin: 0 0.5rem;
+}
+
+#guess button,
+#guess select {
+	display: block;
+	margin: 0;
+}
