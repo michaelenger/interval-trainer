@@ -51,10 +51,6 @@ var isTonicFlat = false;
 var isUnknownFlat = true;
 
 function createChallenge() {
-	resultElement.classList.remove('correct');
-	resultElement.classList.remove('incorrect');
-	resultTextElement.innerHTML = '';
-
 	tonic = unknown = randomNumber(NOTES.length);
 	while (tonic === unknown) {
 		unknown = randomNumber(NOTES.length);
@@ -79,8 +75,8 @@ function checkGuess() {
 	const expectedDistance = determineNoteDistance(tonic, isTonicFlat, unknown, isUnknownFlat);
 	const distance = determineStepDistance(step, variation);
 
-	console.log(`CHECK: ${step} vs ${expectedStep}`);
-	console.log(`CHECK: ${distance} vs ${expectedDistance}`);
+	console.log(`STEP: ${step} vs ${expectedStep}`);
+	console.log(`DISTANCE: ${distance} vs ${expectedDistance}`);
 
 	if (step != expectedStep || distance != expectedDistance) {
 		resultElement.classList.add('incorrect');
@@ -124,9 +120,21 @@ function randomNumber(max) {
 	return Math.floor(Math.random() * max);
 }
 
-document.getElementById('guess').addEventListener('submit', (e) => {
+function resetResult() {
+	resultElement.classList.remove('correct');
+	resultElement.classList.remove('incorrect');
+	resultTextElement.innerHTML = '';
+}
+
+document.getElementById('guess-check').addEventListener('click', (e) => {
 	e.preventDefault();
+	resetResult();
 	checkGuess();
+});
+document.getElementById('guess-next').addEventListener('click', (e) => {
+	e.preventDefault();
+	resetResult();
+	createChallenge();
 });
 
 createChallenge();
