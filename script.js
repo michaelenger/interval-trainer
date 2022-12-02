@@ -40,6 +40,8 @@ const STEP_DISTANCES = {
 
 const guessStepElement = document.getElementById('guess-step');
 const guessVariationElement = document.getElementById('guess-variation');
+const resultElement = document.getElementById('result');
+const resultTextElement = document.getElementById('result-text');
 const tonicElement = document.getElementById('tonic');
 const unknownElement = document.getElementById('unknown');
 
@@ -49,6 +51,10 @@ var isTonicFlat = false;
 var isUnknownFlat = true;
 
 function createChallenge() {
+	resultElement.classList.remove('correct');
+	resultElement.classList.remove('incorrect');
+	resultTextElement.innerHTML = '';
+
 	tonic = unknown = randomNumber(NOTES.length);
 	while (tonic === unknown) {
 		unknown = randomNumber(NOTES.length);
@@ -75,12 +81,13 @@ function checkGuess() {
 
 	console.log(`CHECK: ${step} vs ${expectedStep}`);
 	console.log(`CHECK: ${distance} vs ${expectedDistance}`);
+
 	if (step != expectedStep || distance != expectedDistance) {
-		// TODO: Show failure
-		console.warn('Incorrect');
+		resultElement.classList.add('incorrect');
+		resultTextElement.innerHTML = 'Incorrect';
 	} else {
-		// TODO: Show success
-		console.log('Correct!');
+		resultElement.classList.add('correct');
+		resultTextElement.innerHTML = 'Correct';
 	}
 }
 
