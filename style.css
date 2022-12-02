@@ -17,23 +17,23 @@ h1 {
 
 #challenge #arrow {
 	color: var(--text-light);
-	font-size: 6rem;
-	margin: 0 3rem;
+	font-size: 0.4em;
+	margin: 0 0.2em;
 }
 
 #guess {
 	align-items: center;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 }
 
 #guess div {
-	margin: 0 0.5rem;
+	margin: 0.5rem;
 }
 
 #guess button,
 #guess select {
-	display: block;
 	margin: 0;
 }
 
@@ -61,4 +61,10 @@ h1 {
 
 #result.incorrect .incorrect {
 	display: inline;
+}
+
+@media only screen and (max-width: 600px) {
+	#challenge {
+		font-size: 8rem;
+	}
 }
