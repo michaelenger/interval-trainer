@@ -51,6 +51,9 @@ var isTonicFlat = false;
 var isUnknownFlat = true;
 
 function createChallenge() {
+	guessStepElement.value = '';
+	guessVariationElement.value = '';
+
 	tonic = unknown = randomNumber(NOTES.length);
 	while (tonic === unknown) {
 		unknown = randomNumber(NOTES.length);
